@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080706">
+<title>Voidware Hub Key</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --orange: #ff8a24;
+  --orange2: #ffb15c;
+  --orange3: #ff5e00;
+  --white: #fff7ef;
+  --muted: #99918a;
+  --bg: #080706;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,111,0,.09), transparent 55%),
+    #080706;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .2;
+  animation: glowMove 12s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  background: #ff6500;
+  top: -170px;
+  left: -140px;
+}
+
+.glow-2 {
+  background: #ff9a35;
+  bottom: -200px;
+  right: -120px;
+  animation-delay: -5s;
+}
+
+@keyframes glowMove {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(50px,40px) scale(1.25); }
+}
+
+/* PARTICLES */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ff9c48;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff8a24;
+  animation: particleUp linear infinite;
+}
+
+@keyframes particleUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  15% { opacity: .6; }
+  85% { opacity: .2; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* MAIN */
+.wrapper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 2;
+  animation: pageEnter .9s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(30px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card {
+  position: relative;
+  border-radius: 27px;
+  padding: 32px 25px 25px;
+  background: rgba(20,15,11,.68);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,150,65,.2);
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.5),
+    0 0 50px rgba(255,110,0,.05),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  left: -40%;
+  top: -40%;
+  background: conic-gradient(
+    transparent,
+    transparent 270deg,
+    rgba(255,135,35,.3),
+    transparent 360deg
+  );
+  animation: borderSpin 12s linear infinite;
+  opacity: .3;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(
+    145deg,
+    rgba(15,12,10,.95),
+    rgba(17,13,10,.89)
+  );
+  border-radius: 26px;
+  z-index: 0;
+}
+
+@keyframes borderSpin {
+  to { transform: rotate(360deg); }
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ANIMATED V LOGO ===== */
+
+.logo-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.logo-box {
+  width: 92px;
+  height: 92px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 27px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,150,50,.12),
+    rgba(255,70,0,.025)
+  );
+  border: 1px solid rgba(255,145,50,.3);
+  box-shadow:
+    0 0 35px rgba(255,111,0,.13),
+    inset 0 0 25px rgba(255,145,50,.04);
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+/* Rotating rings */
+.logo-ring {
+  position: absolute;
+  inset: -9px;
+  border-radius: 32px;
+  border: 1px solid transparent;
+  border-top-color: rgba(255,150,50,.65);
+  border-right-color: rgba(255,100,0,.15);
+  animation: ringRotate 5s linear infinite;
+}
+
+.logo-ring.ring2 {
+  inset: -15px;
+  border-radius: 36px;
+  border-bottom-color: rgba(255,130,30,.35);
+  border-left-color: rgba(255,180,90,.1);
+  animation-direction: reverse;
+  animation-duration: 9s;
+}
+
+@keyframes ringRotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* SVG V */
+.logo-svg {
+  width: 58px;
+  height: 58px;
+  overflow: visible;
+}
+
+.v-base {
+  fill: none;
+  stroke: rgba(255,130,30,.12);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.v-draw {
+  fill: none;
+  stroke: url(#vGradient);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  filter: drop-shadow(0 0 5px #ff7a18);
+  animation:
+    drawV 2s cubic-bezier(.65,0,.35,1) forwards,
+    vGlow 2.8s ease-in-out infinite 2s;
+}
+
+@keyframes drawV {
+  0% { stroke-dashoffset: 180; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes vGlow {
+  0%,100% {
+    filter: drop-shadow(0 0 4px rgba(255,120,20,.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 13px rgba(255,170,65,1));
+  }
+}
+
+/* Light sweep over the logo */
+.logo-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 27px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.logo-sweep::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255,255,255,.12) 49%,
+    rgba(255,190,100,.22) 51%,
+    transparent 58%
+  );
+  animation: logoSweep 5s ease-in-out infinite;
+}
+
+@keyframes logoSweep {
+  0%,20% { transform: translate(-50%,-50%); }
+  60%,100% { transform: translate(100%,100%); }
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  color: white;
+}
+
+.title span {
+  background: linear-gradient(
+    90deg,
+    #ffbd77,
+    #ff7417,
+    #ffe0b9,
+    #ff7417
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleGradient 5s linear infinite;
+}
+
+@keyframes titleGradient {
+  to { background-position: 300% 0; }
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* STATUS */
+.status-menu {
+  display: flex;
+  justify-content: center;
+  margin: 23px 0 25px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,153,64,.15);
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  font-weight: 800;
+  color: #ffc28a;
+  transition: .4s;
+}
+
+.status:hover {
+  border-color: rgba(255,145,40,.45);
+  box-shadow: 0 0 20px rgba(255,120,20,.1);
+  transform: translateY(-2px);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff9b44;
+  box-shadow: 0 0 10px #ff8a24;
+  animation: dotPulse 1.7s ease infinite;
+}
+
+@keyframes dotPulse {
+  50% { opacity: .35; transform: scale(.8); }
+}
+
+/* ===== KEY MENU ANIMATIONS ===== */
+
+.key-menu {
+  position: relative;
+  padding: 17px;
+  border-radius: 19px;
+  border: 1px solid rgba(255,142,45,.2);
+  background: rgba(255,255,255,.025);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  box-shadow: inset 0 0 25px rgba(255,100,0,.025);
+  transition: .4s ease;
+  animation: menuReveal 1s .3s both;
+}
+
+@keyframes menuReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated border */
+.key-menu::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255,110,0,.05) 60deg,
+    rgba(255,170,70,.7) 130deg,
+    rgba(255,80,0,.15) 180deg,
+    transparent 270deg,
+    rgba(255,170,70,.4) 330deg,
+    transparent
+  );
+  animation: keyBorderRotate 6s linear infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes keyBorderRotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Glass reflection */
+.key-menu::after {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 160%;
+  top: -30%;
+  left: -140%;
+  background: linear-gradient(
+    110deg,
+    transparent 40%,
+    rgba(255,170,80,.08),
+    rgba(255,255,255,.035),
+    transparent 60%
+  );
+  transform: rotate(8deg);
+  animation: keyGlassSweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes keyGlassSweep {
+  0%,15% { left: -140%; }
+  70%,100% { left: 150%; }
+}
+
+.key-menu:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,150,50,.35);
+  box-shadow:
+    0 0 30px rgba(255,100,0,.08),
+    inset 0 0 30px rgba(255,100,0,.045);
+}
+
+.key-menu-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.key-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.key-label {
+  font-size: 10px;
+  color: #a69a90;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.key-icon {
+  color: #ff9a48;
+  font-size: 15px;
+  animation: starSpin 5s linear infinite, starPulse 2s ease-in-out infinite;
+}
+
+@keyframes starSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes starPulse {
+  50% { opacity: .4; }
+}
+
+/* Key display */
+.key-display {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,142,45,.14);
+  background: rgba(0,0,0,.25);
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.key-display::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -80%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,140,35,.08),
+    transparent
+  );
+  animation: keyTextShine 5s ease infinite;
+}
+
+@keyframes keyTextShine {
+  0%,25% { left: -80%; }
+  70%,100% { left: 130%; }
+}
+
+.key-display:hover {
+  border-color: rgba(255,142,45,.35);
+  box-shadow: 0 0 18px rgba(255,100,0,.05);
+}
+
+.key-text {
+  color: #ffbc7b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .25px;
+  white-space: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  scrollbar-width: none;
+  text-shadow: 0 0 8px rgba(255,120,20,.15);
+}
+
+.key-text::-webkit-scrollbar {
+  display: none;
+}
+
+/* COPY BUTTON */
+.copy-btn {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  margin-top: 15px;
+  border-radius: 13px;
+  border: 1px solid rgba(255,200,140,.15);
+  background: linear-gradient(110deg, #ff7a16, #ff9e3d, #ff6a00);
+  background-size: 200% 100%;
+  color: #1a0d04;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow:
+    0 7px 25px rgba(255,110,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .25s, box-shadow .25s;
+  animation: buttonGradient 5s linear infinite;
+}
+
+@keyframes buttonGradient {
+  to { background-position: 200% 0; }
+}
+
+.copy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 35px rgba(255,110,0,.28),
+    0 0 20px rgba(255,150,50,.12);
+}
+
+.copy-btn:active {
+  transform: scale(.97);
+}
+
+.copy-btn::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -70%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: buttonShine 4s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+  0%,25% { left: -70%; }
+  65%,100% { left: 140%; }
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  position: relative;
+  z-index: 1;
+}
+
+.copy-btn.copied {
+  background: linear-gradient(100deg, #24a66a, #49d88a);
+  color: #06160d;
+  box-shadow: 0 0 30px rgba(50,220,120,.2);
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 23px;
+  text-align: center;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,130,30,.2),
+    transparent
+  );
+  margin-bottom: 19px;
+}
+
+.footer-text {
+  color: #77716b;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: .4px;
+}
+
+.footer-text strong {
+  color: #ff9a4a;
+}
+
+.footer-icon {
+  display: inline-block;
+  animation: footerGlow 3s ease infinite;
+}
+
+@keyframes footerGlow {
+  50% { opacity: .4; }
+}
+
+/* MOBILE */
+@media(max-width:420px) {
+  body { padding: 15px; }
+  .card { padding: 29px 19px 23px; }
+  .title { font-size: 25px; }
+  .logo-box { width: 82px; height: 82px; }
+  .key-menu { padding: 14px; }
+  .key-text { font-size: 10px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+</div>
+
+<div class="particles" id="particles"></div>
+
+<div class="wrapper">
+  <div class="card">
+    <div class="card-inner">
+
+      <!-- V LOGO ANIMATION -->
+      <div class="logo-area">
+        <div class="logo-box">
+
+          <div class="logo-ring"></div>
+          <div class="logo-ring ring2"></div>
+          <div class="logo-sweep"></div>
+
+          <svg class="logo-svg" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="vGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffd09b"/>
+                <stop offset="50%" stop-color="#ff8a24"/>
+                <stop offset="100%" stop-color="#ff5a00"/>
+              </linearGradient>
+            </defs>
+
+            <path class="v-base" d="M15 15 L50 83 L85 15"/>
+            <path class="v-draw" d="M15 15 L50 83 L85 15"/>
+          </svg>
+
+        </div>
+      </div>
+
+      <h1 class="title"><span>Voidware Hub Key</span></h1>
+      <p class="subtitle">Premium access · Your key is ready</p>
+
+      <!-- STATUS -->
+      <div class="status-menu">
+        <div class="status">
+          <span class="status-dot"></span>
+          SYSTEM OPERATIONAL
+        </div>
+      </div>
+
+      <!-- KEY MENU -->
+      <div class="key-menu">
+        <div class="key-menu-inner">
+
+          <div class="key-top">
+            <span class="key-label">ACCESS KEY</span>
+            <span class="key-icon">✦</span>
+          </div>
+
+          <div class="key-display">
+            <div class="key-text" id="keyText">
+              VoidwareHubKeyKsnslwonLaojwowowbLsjwkwowob
+            </div>
+          </div>
+
+          <button class="copy-btn" id="copyBtn" onclick="copyKey()">
+            <span class="btn-content" id="btnContent">
+              <span>▣</span>
+              <span>COPY KEY</span>
+            </span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        <div class="footer-line"></div>
+        <div class="footer-text">
+          <span class="footer-icon">✧</span>
+          Secure access to <strong>Voidware Hub</strong><br>
+          KEY SYSTEM · VERSION 3.0
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const KEY = "VoidwareHubKeyKsnslwonLaojwowowbLsjwkwowob";
+
+async function copyKey() {
+  const button = document.getElementById("copyBtn");
+  const content = document.getElementById("btnContent");
+
+  try {
+    await navigator.clipboard.writeText(KEY);
+  } catch (error) {
+    const textarea = document.createElement("textarea");
+    textarea.value = KEY;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+
+  button.classList.add("copied");
+  content.innerHTML = "<span>✓</span><span>KEY COPIED SUCCESSFULLY</span>";
+
+  if (navigator.vibrate) navigator.vibrate(35);
+
+  setTimeout(() => {
+    button.classList.remove("copied");
+    content.innerHTML = "<span>▣</span><span>COPY KEY</span>";
+  }, 2200);
+}
+
+/* Animated particles */
+const particleContainer = document.getElementById("particles");
+
+for (let i = 0; i < 36; i++) {
+  const particle = document.createElement("span");
+  particle.className = "particle";
+
+  particle.style.left = Math.random() * 100 + "%";
+  particle.style.top = Math.random() * 100 + "%";
+  particle.style.animationDuration = (7 + Math.random() * 12) + "s";
+  particle.style.animationDelay = (-Math.random() * 15) + "s";
+
+  const size = 1 + Math.random() * 2.5;
+  particle.style.width = size + "px";
+  particle.style.height = size + "px";
+
+  particleContainer.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
